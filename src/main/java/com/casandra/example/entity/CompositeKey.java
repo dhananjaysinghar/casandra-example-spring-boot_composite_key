@@ -3,6 +3,7 @@ package com.casandra.example.entity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import org.springframework.data.cassandra.core.cql.Ordering;
 import org.springframework.data.cassandra.core.cql.PrimaryKeyType;
 import org.springframework.data.cassandra.core.mapping.PrimaryKeyClass;
 import org.springframework.data.cassandra.core.mapping.PrimaryKeyColumn;
@@ -13,10 +14,10 @@ import org.springframework.data.cassandra.core.mapping.PrimaryKeyColumn;
 @PrimaryKeyClass
 public class CompositeKey {
 
-    @PrimaryKeyColumn(name = "USERID", ordinal = 0, type = PrimaryKeyType.PARTITIONED)
+    @PrimaryKeyColumn(name = "USERID", ordinal = 0, type = PrimaryKeyType.PARTITIONED, ordering = Ordering.ASCENDING)
     private String userId;
 
-    @PrimaryKeyColumn(name = "PROFILEID", ordinal = 0, type = PrimaryKeyType.CLUSTERED)
+    @PrimaryKeyColumn(name = "PROFILEID", ordinal = 1, type = PrimaryKeyType.PARTITIONED)
     private String profileId;
 
 }
