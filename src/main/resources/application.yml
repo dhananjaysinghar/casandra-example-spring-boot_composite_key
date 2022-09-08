@@ -1,0 +1,14 @@
+spring:
+  data:
+    cassandra:
+      keyspace-name: user_key_space_test
+      port: 9042
+      contact-points: 127.0.0.1
+      password: cassandra
+      username: cassandra
+      local-datacenter: datacenter1
+      schema-action: CREATE_IF_NOT_EXISTS
+      connection:
+        request:
+          timeout: 10s
+        init-query-timeout: 10s
